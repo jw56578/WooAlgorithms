@@ -6,6 +6,11 @@ using System.Threading.Tasks;
 
 namespace WooAlgorithms
 {
+    /// <summary>
+    /// maintain an array of integers in which the index represents the numbers to be connected
+    /// the value of the array indicates whether the numbers are connected
+    /// this is a quadratic algorithm 
+    /// </summary>
     public class QuickFind
     {
         public int[] id;

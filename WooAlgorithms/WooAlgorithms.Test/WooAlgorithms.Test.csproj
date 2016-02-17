@@ -50,8 +50,14 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="WeightedQuickUnionTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WooAlgorithms\WooAlgorithms.csproj">
+      <Project>{c101ea18-949e-47dd-b57e-07c2da315dec}</Project>
+      <Name>WooAlgorithms</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

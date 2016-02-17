@@ -6,21 +6,28 @@ using System.Threading.Tasks;
 
 namespace WooAlgorithms
 {
-    public class QuickUnion
+    public class WeightedQuickUnion
     {
          public int[] id;
+        public int[] sz;
 
-         public QuickUnion(int n)
+         public WeightedQuickUnion(int n)
         {
             id = new int[n];
+            sz = new int[n];
             for (int i = 0; i < n; i++)
             {
                 id[i] = i;
+                sz[i] = 1;
             }
         }
          int Root(int i)
          {
-             while (i != id[i]) i = id[i];
+            while (i != id[i])
+            {
+                id[i] = id[id[i]];
+                i = id[i];
+            }
              return i;
          }
         public bool Connected(int p, int q)
@@ -31,7 +38,17 @@ namespace WooAlgorithms
         {
             int i = Root(p);
             int j = Root(q);
-            id[i] = j;
+            if (i == j) return;
+            if (sz[i] < sz[j])
+            {
+                id[i] = j;
+                sz[j] += sz[i];
+            }
+            else {
+                id[j] = i;
+                sz[i] += sz[j];
+            }
+           
         }
     }
 }

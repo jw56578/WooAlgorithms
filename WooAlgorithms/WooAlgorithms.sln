@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WooAlgorithms", "WooAlgorithms\WooAlgorithms.csproj", "{C101EA18-949E-47DD-B57E-07C2DA315DEC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WooAlgorithms.Test", "WooAlgorithms.Test\WooAlgorithms.Test.csproj", "{F1488856-466A-4DF8-BED7-0D00FCC19BBE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Percolation", "Percolation\Percolation.csproj", "{E5525C1B-BA1A-4680-8300-585BA92916D4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{F1488856-466A-4DF8-BED7-0D00FCC19BBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F1488856-466A-4DF8-BED7-0D00FCC19BBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F1488856-466A-4DF8-BED7-0D00FCC19BBE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5525C1B-BA1A-4680-8300-585BA92916D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5525C1B-BA1A-4680-8300-585BA92916D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5525C1B-BA1A-4680-8300-585BA92916D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5525C1B-BA1A-4680-8300-585BA92916D4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
