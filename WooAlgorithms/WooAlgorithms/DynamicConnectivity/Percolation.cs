@@ -19,6 +19,9 @@ namespace WooAlgorithms.DynamicConnectivity
         WeightedQuickUnion weightedUnion = null;
         int VirtualTopId = 0;
         int VirtualBottomId = 0;
+        int X = 0;
+        int Y = 0;
+        int Cells = 0;
         public Percolation():this(10,10)
         {
  
@@ -26,13 +29,37 @@ namespace WooAlgorithms.DynamicConnectivity
         public Percolation(int x, int y)
         {
             myGrid = new Grid(x,y);
-            weightedUnion = new WeightedQuickUnion((x * y) + 2);
-            VirtualTopId = x * y;
-            VirtualBottomId = x * y + 1;
+            Cells = x * y;
+            weightedUnion = new WeightedQuickUnion(Cells + 2);
+            VirtualTopId = Cells;
+            VirtualBottomId = Cells + 1;
+            X = x;
+            Y = y;
         }
         public void Union(int p, int q)
         {
+            UnionVirtualSites(p, q);
             weightedUnion.Union(p, q);
+        }
+        void UnionVirtualSites(int p, int q)
+        {
+            if (p < X)
+                UnionTopRow(p);
+            if (p >= Cells - X)
+                UnionBottomRow(p);
+            if (q < X)
+                UnionTopRow(q);
+            if (q >= Cells - X)
+                UnionBottomRow(q);
+
+        }
+        void UnionTopRow(int id)
+        {
+            weightedUnion.Union(VirtualTopId, id);
+        }
+        void UnionBottomRow(int id)
+        {
+            weightedUnion.Union(VirtualBottomId, id);
         }
         //do we need to care about unioning???
         public void UnUnion()
