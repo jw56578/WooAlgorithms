@@ -70,7 +70,6 @@ namespace WooAlgorithms.DynamicConnectivity
         /// if you were just going to test whether the top row is connected to the bottom row, this would be too slow because you would just be loooping through
         /// all the cells on the top and testing against the cells on the bottom
         /// instead just create 2 more quasi cells that reprsent the entire top and the entire bottom
-        /// so i guess anyttime you did a union on any id that is on the top and bottom row, you would then also union the virtual sites
         /// </summary>
         void CreateVirtualSite()
         {
