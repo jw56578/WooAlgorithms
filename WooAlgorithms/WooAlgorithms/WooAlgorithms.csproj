@@ -43,6 +43,7 @@
     <Compile Include="DynamicConnectivity\Percolation.cs" />
     <Compile Include="DynamicConnectivity\WeightedQuickUnion.cs" />
     <Compile Include="Graph\BreadthFirstSearch.cs" />
+    <Compile Include="Graph\ConnectedComponents.cs" />
     <Compile Include="Graph\DepthFirstSearch.cs" />
     <Compile Include="Graph\Graph.cs" />
     <Compile Include="Graph\Maze.cs" />

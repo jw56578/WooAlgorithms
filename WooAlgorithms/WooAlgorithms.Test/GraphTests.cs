@@ -4,9 +4,45 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace WooAlgorithms.Test
 {
     [TestClass]
-    public class GraphDepthFirstSearchTests
+    public class GraphTests
     {
+        [TestMethod]
+        public void ConnectdComponentsWorks()
+        {
+            Graph.Graph g = new Graph.Graph(13);
+            g.AddEdge(0, 1);
+            g.AddEdge(0, 2);
+            g.AddEdge(0, 5);
+            g.AddEdge(0, 6);
+            g.AddEdge(3, 4);
+            g.AddEdge(3, 5);
+            g.AddEdge(4, 6);
+            g.AddEdge(4, 5);
 
+            g.AddEdge(7, 8);
+
+            g.AddEdge(9, 10);
+            g.AddEdge(9, 11);
+            g.AddEdge(9, 12);
+            g.AddEdge(11, 12);
+
+            Graph.ConnectedComponents cc = new Graph.ConnectedComponents(g);
+            Assert.AreEqual(cc.id[0], 0);
+            Assert.AreEqual(cc.id[1], 0);
+            Assert.AreEqual(cc.id[2], 0);
+            Assert.AreEqual(cc.id[3], 0);
+            Assert.AreEqual(cc.id[4], 0);
+            Assert.AreEqual(cc.id[5], 0);
+            Assert.AreEqual(cc.id[6], 0);
+            Assert.AreEqual(cc.id[7], 1);
+            Assert.AreEqual(cc.id[8], 1);
+            Assert.AreEqual(cc.id[9], 2);
+            Assert.AreEqual(cc.id[10], 2);
+            Assert.AreEqual(cc.id[11], 2);
+            Assert.AreEqual(cc.id[12], 2);
+
+
+        }
         [TestMethod]
         public void BredthFirstSearchWorks()
         {

@@ -52,7 +52,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="GraphDepthFirstSearchTests.cs" />
+    <Compile Include="GraphTests.cs" />
     <Compile Include="WeightedQuickUnionTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
