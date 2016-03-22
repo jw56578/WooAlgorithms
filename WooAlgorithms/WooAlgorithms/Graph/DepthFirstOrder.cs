@@ -6,6 +6,13 @@ using System.Threading.Tasks;
 
 namespace WooAlgorithms.Graph
 {
+    /// <summary>
+    /// find the order in which things go given that they are not cyclical
+    /// use this to detect cycles when not desired
+    /// a class the inherits from a class that inherits from iteself
+    /// a class that has a prerequisete of another class that has a prerequisite of itself
+    /// and excel spread sheet formula referring to itself
+    /// </summary>
     public class DepthFirstOrder
     {
         bool[] marked;

@@ -43,5 +43,17 @@ namespace WooAlgorithms.Graph
         {
             adj[v].Add(w);
         }
+        public override Graph Reverse()
+        {
+            var g = new DirectedGraph(this.V);
+            for(int i = 0; i < this.adj.Length; i ++)
+            {
+                foreach (var a in this.adj[i])
+                {
+                    g.AddEdge(a, i);
+                }
+            }
+            return g;
+        }
     }
 }

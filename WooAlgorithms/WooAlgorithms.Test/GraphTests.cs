@@ -7,6 +7,59 @@ namespace WooAlgorithms.Test
     [TestClass]
     public class GraphTests
     {
+        public Graph.Graph StrongComponent()
+        {
+            Graph.Graph g = new Graph.DirectedGraph(13);
+            g.AddEdge(4, 2);
+            g.AddEdge(2,3);
+            g.AddEdge(3,2);
+            g.AddEdge(6,0);
+            g.AddEdge(0,1);
+            g.AddEdge(2,0);
+            g.AddEdge(11,12);
+            g.AddEdge(12,9);
+            g.AddEdge(9,10);
+            g.AddEdge(9,11);
+            g.AddEdge(7,9);
+            g.AddEdge(10,12);
+            g.AddEdge(11,4);
+            g.AddEdge(4,3);
+            g.AddEdge(3,5);
+            g.AddEdge(6,8);
+            g.AddEdge(8,6);
+            g.AddEdge(5, 4);
+            g.AddEdge(0, 5);
+            g.AddEdge(6, 4);
+            g.AddEdge(6, 9);
+            g.AddEdge(7, 6);
+            return g;
+        }
+        [TestMethod]
+        public void StrongComponentWorks()
+        {
+            var sc = new Graph.StrongComponents(StrongComponent());
+            Assert.AreEqual(sc.id[0], 1);
+            Assert.AreEqual(sc.id[1], 0);
+            Assert.AreEqual(sc.id[2], 1);
+            Assert.AreEqual(sc.id[3], 1);
+            Assert.AreEqual(sc.id[4], 1);
+            Assert.AreEqual(sc.id[5], 1);
+            Assert.AreEqual(sc.id[6], 3);
+            Assert.AreEqual(sc.id[7], 4);
+            Assert.AreEqual(sc.id[8], 3);
+            Assert.AreEqual(sc.id[9], 2);
+            Assert.AreEqual(sc.id[10], 2);
+            Assert.AreEqual(sc.id[11], 2);
+            Assert.AreEqual(sc.id[12], 2);
+        }
+        [TestMethod]
+        public void ReverseGraph()
+        {
+            var g = StrongComponent();
+            g = g.Reverse();
+
+
+        }
         [TestMethod]
         public void DepthFirstOrder()
         {
