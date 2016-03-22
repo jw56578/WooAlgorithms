@@ -13,7 +13,18 @@ namespace WooAlgorithms.Graph
         //no idea how to implement this
         public int[] disTo;
         int s;
-
+        int[] sources;
+        /// <summary>
+        /// Multiple source shortest path
+        /// given multiple starting points, what has the shortest path to the end point
+        /// </summary>
+        /// <param name="g"></param>
+        /// <param name="s"></param>
+        /// <param name="sources"></param>
+        public BreadthFirstSearch(Graph g, int s,params int[] sources )
+        {
+            this.sources = sources;
+        }
         public BreadthFirstSearch(Graph g, int s)
         {
             this.s = s;
@@ -25,6 +36,11 @@ namespace WooAlgorithms.Graph
         void bfs(Graph g, int s)
         {
             Queue<int> q = new Queue<int>();
+            if (sources != null)
+                foreach (var ss in sources)
+                {
+                    q.Enqueue(ss);
+                }
             q.Enqueue(s);
             marked[s] = true;
             disTo[s] = 0;

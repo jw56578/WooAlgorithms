@@ -44,7 +44,9 @@
     <Compile Include="DynamicConnectivity\WeightedQuickUnion.cs" />
     <Compile Include="Graph\BreadthFirstSearch.cs" />
     <Compile Include="Graph\ConnectedComponents.cs" />
+    <Compile Include="Graph\DepthFirstOrder.cs" />
     <Compile Include="Graph\DepthFirstSearch.cs" />
+    <Compile Include="Graph\DirectedAcyclicGraph.cs" />
     <Compile Include="Graph\DirectedGraph.cs" />
     <Compile Include="Graph\UndirectedGraph.cs" />
     <Compile Include="Graph\Maze.cs" />

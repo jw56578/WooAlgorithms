@@ -1,11 +1,43 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Linq;
 
 namespace WooAlgorithms.Test
 {
     [TestClass]
     public class GraphTests
     {
+        [TestMethod]
+        public void DepthFirstOrder()
+        {
+            Graph.Graph g = new Graph.DirectedGraph(7);
+            g.AddEdge(0, 5);
+            g.AddEdge(0, 2);
+            g.AddEdge(0, 1);
+            g.AddEdge(3, 6);
+            g.AddEdge(3, 5);
+            g.AddEdge(3, 4);
+            g.AddEdge(5, 2);
+            g.AddEdge(6, 4);
+            g.AddEdge(6, 0);
+            g.AddEdge(3, 2);
+            g.AddEdge(1, 4);
+
+            Graph.DepthFirstOrder dfs = new Graph.DepthFirstOrder(g);
+            //4,1,2,5,0,6,3
+            //this doesn't come out in the order of the lecture but it doesn't matter
+            //it just has to be in in any order from bottom to top
+            //this result actually makes more sense because 2 goes no where and it is at the top
+            var postOrder = dfs.ReverseOrder().ToArray();
+            Assert.AreEqual(postOrder[0], 3);
+            Assert.AreEqual(postOrder[1], 6);
+            Assert.AreEqual(postOrder[2], 0);
+            Assert.AreEqual(postOrder[3], 1);
+            Assert.AreEqual(postOrder[4], 4);
+            Assert.AreEqual(postOrder[5], 5);
+            Assert.AreEqual(postOrder[6], 2);
+
+        }
         [TestMethod]
         public void DirectedBredthFirstSearchWorks()
         {
