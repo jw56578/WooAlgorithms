@@ -26,13 +26,13 @@ namespace WooAlgorithms.Graph
     ///
     /// 
     /// </summary>
-    public class Graph
+    public abstract class Graph
     {
         //list could be replaced with Bag, google java bag
-        List<int>[] adj;
+        protected List<int>[] adj;
 
         //I guess you need another array to hold the actual object
-        Vertex[] vertex;
+        protected Vertex[] vertex;
 
         //the count of all vertex
         public int V;
@@ -52,18 +52,27 @@ namespace WooAlgorithms.Graph
             }
 
         }
+        public abstract void AddEdge(int v, int w);
 
-        public void AddEdge(int v, int w)
-        {
-            adj[v].Add(w);
-            adj[w].Add(v);
-        }
+
 
         public IEnumerable<int> Adj(int v) {
             foreach (var vert in adj[v])
             {
                 yield return vert;
             }
+        }
+    }
+    public class UndirectedGraph : Graph
+    {
+        public UndirectedGraph(int v):base(v)
+        {
+
+        }
+        public override void AddEdge(int v, int w)
+        {
+            adj[v].Add(w);
+            adj[w].Add(v);
         }
     }
 }

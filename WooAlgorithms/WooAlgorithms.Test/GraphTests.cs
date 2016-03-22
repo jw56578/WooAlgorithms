@@ -7,9 +7,41 @@ namespace WooAlgorithms.Test
     public class GraphTests
     {
         [TestMethod]
+        public void DirectedBredthFirstSearchWorks()
+        {
+            Graph.Graph g = new Graph.DirectedGraph(9);
+            g.AddEdge(0, 2);
+            g.AddEdge(0, 1);
+            g.AddEdge(2, 4);
+            g.AddEdge(5, 0);
+            g.AddEdge(1, 2);
+            g.AddEdge(3, 2);
+            g.AddEdge(4, 3);
+            g.AddEdge(3, 5);
+            g.AddEdge(3, 5);
+
+
+            Graph.BreadthFirstSearch dfs = new Graph.BreadthFirstSearch(g, 0);
+
+            Assert.AreEqual(dfs.edgeTo[1], 0);
+            Assert.AreEqual(dfs.edgeTo[2], 0);
+            Assert.AreEqual(dfs.edgeTo[3], 4);
+            Assert.AreEqual(dfs.edgeTo[4], 2);
+            Assert.AreEqual(dfs.edgeTo[5], 3);
+
+
+            Assert.AreEqual(dfs.disTo[1], 1);
+            Assert.AreEqual(dfs.disTo[2], 1);
+            Assert.AreEqual(dfs.disTo[3], 3);
+            Assert.AreEqual(dfs.disTo[4], 2);
+            Assert.AreEqual(dfs.disTo[5], 4);
+
+
+        }
+        [TestMethod]
         public void ConnectdComponentsWorks()
         {
-            Graph.Graph g = new Graph.Graph(13);
+            Graph.Graph g = new Graph.UndirectedGraph(13);
             g.AddEdge(0, 1);
             g.AddEdge(0, 2);
             g.AddEdge(0, 5);
@@ -41,12 +73,13 @@ namespace WooAlgorithms.Test
             Assert.AreEqual(cc.id[11], 2);
             Assert.AreEqual(cc.id[12], 2);
 
-
+            //so then you just look at the item that you care about and find out what its id is
+            //then you find everything else that has the same id and do whatever
         }
         [TestMethod]
         public void BredthFirstSearchWorks()
         {
-            Graph.Graph g = new Graph.Graph(9);
+            Graph.Graph g = new Graph.UndirectedGraph(9);
             g.AddEdge(0, 2);
             g.AddEdge(0, 1);
             g.AddEdge(0, 5);
@@ -82,7 +115,7 @@ namespace WooAlgorithms.Test
         [TestMethod]
         public void DepthFirstSearchWorks()
         {
-            Graph.Graph g = new Graph.Graph(7);
+            Graph.Graph g = new Graph.UndirectedGraph(7);
             g.AddEdge(0, 6);
             g.AddEdge(0, 2);
             g.AddEdge(0, 1);

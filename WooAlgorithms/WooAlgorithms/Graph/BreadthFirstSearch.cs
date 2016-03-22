@@ -27,7 +27,7 @@ namespace WooAlgorithms.Graph
             Queue<int> q = new Queue<int>();
             q.Enqueue(s);
             marked[s] = true;
-            int distanceTo = 1;
+            disTo[s] = 0;
             while (q.Count != 0)
             {
                 int v = q.Dequeue();
@@ -35,13 +35,16 @@ namespace WooAlgorithms.Graph
                 {
                     if (!marked[w])
                     {
+                        //how do you know that you are at the next level of distance
+                        //you have to somehow maintain the parent of of the node you are visiting and add one to its distance
+                        //this is already recorded in edge to you just take the parent that got you to this node and get its distance and then add 1
+                        disTo[w] = disTo[v] + 1;
                         q.Enqueue(w);
                         marked[w] = true;
                         edgeTo[w] = v;
-                        disTo[w] = distanceTo;
+                        
                     }
                 }
-                distanceTo++;
             }
         }
 
